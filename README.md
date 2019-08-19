@@ -3,6 +3,8 @@ Switchable promises. This module is an simple implementation of switch and case 
 
 The library will return the sPromise class.
 
+To install simply ``` npm i @its2uraps/swpromise ```
+
 Using it is simple, just use as follows: 
 
 ```

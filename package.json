@@ -1,5 +1,5 @@
 {
-    "name": "spromise",
+    "name": "swpromise",
     "version": "1.0.0",
     "description": "Switchable Promises, This module is an simple implementation of switch and case style statement on a promise chain.",
     "main": "index.js",

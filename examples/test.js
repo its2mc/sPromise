@@ -26,3 +26,5 @@ switch(res => {
 catch(err => {
     assert.fail(err);
 });
+
+console.log("All tests completed.");

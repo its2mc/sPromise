@@ -1,26 +1,26 @@
 {
-  "name": "spromise",
-  "version": "1.0.0",
-  "description": "Switchable Promises, This module is an simple implementation of switch and case style statement on a promise chain.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/its2mc/sPromise.git"
-  },
-  "keywords": [
-    "switch",
-    "case",
-    "promise",
-    "switchable",
-    "promise"
-  ],
-  "author": "PhilMc <its2uraps@gmail.com> (https://github.com/its2mc/)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/its2mc/sPromise/issues"
-  },
-  "homepage": "https://github.com/its2mc/sPromise#readme"
+    "name": "spromise",
+    "version": "1.0.0",
+    "description": "Switchable Promises, This module is an simple implementation of switch and case style statement on a promise chain.",
+    "main": "index.js",
+    "scripts": {
+        "test": "cd examples && node test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/its2mc/sPromise.git"
+    },
+    "keywords": [
+        "switch",
+        "case",
+        "promise",
+        "switchable",
+        "promise"
+    ],
+    "author": "PhilMc <its2uraps@gmail.com> (https://github.com/its2mc/)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/its2mc/sPromise/issues"
+    },
+    "homepage": "https://github.com/its2mc/sPromise#readme"
 }

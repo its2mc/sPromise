@@ -8,7 +8,7 @@ To install simply ``` npm i @its2uraps/swpromise ```
 Using it is simple, just use as follows: 
 
 ```
-let sPromise = require('sPromise');
+let sPromise = require('@its2uraps/swpromise');
 
 (new sPromise((resolve, reject) => {
     let time = setTimeout(() => {

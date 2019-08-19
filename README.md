@@ -1,12 +1,12 @@
 # sPromise
 Switchable promises. This module is an simple implementation of switch and case style statement on a promise chain.
 
-The library will mount the sPromise class to the global
+The library will return the sPromise class.
 
 Using it is simple, just use as follows: 
 
 ```
-require('sPromise')();
+let sPromise = require('sPromise');
 
 (new sPromise((resolve, reject) => {
     let time = setTimeout(() => {

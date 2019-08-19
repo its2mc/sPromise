@@ -39,7 +39,7 @@ The sPromise class has two functions for loading optional statements, case takes
 
 The switch function will receive the result of the executed case statement in the callback function.
 
-#Things to note
+# Things to note
 
 - case functions need to be called first to be executed by the switch function
 - If the executible result fulfills more than one case statement the first fulfilled case gets executed.

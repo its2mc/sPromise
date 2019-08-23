@@ -35,7 +35,7 @@ module.exports = (() => {
 
         class sPromise extends Promise {
 
-            constructor(executor) {
+            constructor(executor = () => {}) {
                 super((resolve, reject) => {
                     return executor(resolve, reject);
                 })
@@ -44,10 +44,11 @@ module.exports = (() => {
                 this._caseFunc = [];
                 this.onRejected = () => {};
                 this._switch = () => {};
+                this._default = () => {};
 
             }
 
-            case (_case, _cb) {
+            case (_case, _cb = () => {}) {
                 if (!!_case || _case === 0) {
                     this._caseTag.push({ c: "==", case: _case });
                     this._caseFunc.push(_cb);
@@ -55,7 +56,23 @@ module.exports = (() => {
                 return this;
             }
 
-            strictCase(_case, _cb) {
+            caseGreater(_case, _cb = () => {}) {
+                if (!!_case || _case === 0) {
+                    this._caseTag.push({ c: ">", case: _case });
+                    this._caseFunc.push(_cb);
+                }
+                return this;
+            }
+
+            caseLess(_case, _cb = () => {}) {
+                if (!!_case || _case === 0) {
+                    this._caseTag.push({ c: "<", case: _case });
+                    this._caseFunc.push(_cb);
+                }
+                return this;
+            }
+
+            strictCase(_case, _cb = () => {}) {
                 if (!!_case || _case === 0) {
                     this._caseTag.push({ c: "===", case: _case });
                     this._caseFunc.push(_cb);
@@ -63,8 +80,13 @@ module.exports = (() => {
                 return this;
             }
 
+            default (_cb = () => {}) {
+                this._default = _cb;
+                return this;
+            }
+
             //This function executes the case conditions
-            switch (onFulfilled, onRejected) {
+            switch (onFulfilled = () => {}, onRejected = () => {}) {
                 let scope = this;
                 this.then(comparator => {
                     try {
@@ -77,8 +99,12 @@ module.exports = (() => {
                                         return scope._caseTag[index].case == comparator;
                                     case "===":
                                         return scope._caseTag[index].case === comparator;
+                                    case ">":
+                                        return scope._caseTag[index].case > comparator;
+                                    case "<":
+                                        return scope._caseTag[index].case < comparator;
                                 }
-                            }))[0] || (() => {}); //Get the first function that fulfills the condition
+                            }))[0] || this.default; //Get the first function that fulfills the condition
 
                         }
                         onFulfilled(_switch());
@@ -92,8 +118,8 @@ module.exports = (() => {
                 });
 
                 return this;
-            } catch (onRejected) {
-                this.onRejected = onRejected
+            } catch (onRejected = () => {}) {
+                this.onRejected = onRejected;
                 return this;
             }
 
